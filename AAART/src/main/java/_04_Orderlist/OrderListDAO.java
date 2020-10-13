@@ -39,7 +39,7 @@ public class OrderListDAO {
 		}
 		return dataSource;
 	}
-	
+	//建立訂單
 	//void 代表什麼都不返回，即無return
 	//建立一個addlist
 	//Orderlistbean類別的物件-orderlist ex int 5
@@ -90,7 +90,7 @@ public class OrderListDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	//查詢訂單資訊
 	//建一個showlist方法，類型為list
 		public List<Orderlistbean> GetOrderUser() {
 			//實作一個arrylist，list為介面
@@ -119,7 +119,7 @@ public class OrderListDAO {
 			return orderlists;
 		}
 		
-		
+		//查詢訂單數量
 		//建一個showlist方法，類型為list
 				public List<Orderlistbean> GetOrderlist() {
 					//實作一個arrylist，list為介面
@@ -160,8 +160,74 @@ public class OrderListDAO {
 			return newDate + result;
 	}
 		
+	//刪除商品訂單	
+		public Orderlistbean deleteorderUSER(Orderlistbean orderlistbean) {
+			
+			System.out.println("進入刪除訂單方法");
+			String liString = "DELETE FROM ORDERLIST WHERE ORDERID=?";
+			try (
+					Connection conn = getDataSource().getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(liString);
+					) {
+					pstmt.setString(1, orderlistbean.getORDERID());
+					pstmt.executeUpdate();
+					System.out.println("已刪除");
+					return orderlistbean;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}	
 		
 		
+				//刪除商品訂單	
+				public Orderlistbean deleteorderlist(Orderlistbean orderlistbean) {
+					
+					System.out.println("進入刪除訂單方法");
+					String liString = "DELETE FROM ORDERNUM WHERE ORDERID=?";
+					try (
+							Connection conn = getDataSource().getConnection();
+							PreparedStatement pstmt = conn.prepareStatement(liString);
+							) {
+							pstmt.setString(1, orderlistbean.getORDERID());
+							pstmt.executeUpdate();
+							System.out.println("已刪除");
+							return orderlistbean;
+					} catch (SQLException e) {
+						e.printStackTrace();
+						throw new RuntimeException(e);
+					}
+				}	
+				
+				//修改訂單資訊	
+				public int updateOrderuser(Orderlistbean orderlistbean) {
+					int n =0;
+					System.out.println("進入修改方法");
+					String liString = "UPDATE ORDERLIST SET NAME=? ,EMAIL=? ,TEL=? ,ADDRESS=? WHERE ORDERID=?";
+					try (
+							Connection conn = getDataSource().getConnection();
+							PreparedStatement pstmt = conn.prepareStatement(liString);
+							) {
+						pstmt.setString(1, orderlistbean.getNAME());
+						pstmt.setString(2, orderlistbean.getEMAIL());
+						pstmt.setString(3, orderlistbean.getTEL());
+						pstmt.setString(4, orderlistbean.getADDRESS());
+						pstmt.setString(5, orderlistbean.getORDERID());
+						System.out.println(orderlistbean.getNAME());
+						System.out.println(orderlistbean.getEMAIL());
+						System.out.println(orderlistbean.getNAME());
+						System.out.println(orderlistbean.getNAME());
+						System.out.println(orderlistbean.getNAME());
+						
+						n= pstmt.executeUpdate();
+						
+						System.out.println("已更新訂單");
+					} catch (SQLException e) {
+						e.printStackTrace();
+						throw new RuntimeException(e);
+					}
+					return n;
+				}	
 		
 		
 }

@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-	<jsp:include page="/fragment/top.jsp" />
+	<jsp:include page="/_04_ST/04_topbar.jsp" />
 	節目查詢
 	<c:set var="totalnum" value="${requestScope.totalnum}"/>
     <c:set var="PerPage" value="${requestScope.PerPage}"/>

@@ -25,7 +25,7 @@
 <body>
 <form name="order2" action="<c:url value='/_04_Orderlist/OrderlistServlet'/> " method="get">
 
-	<jsp:include page="/fragment/top.jsp" />
+	<jsp:include page="/_04_ST/04_topbar.jsp" />
 <%-- <c:set var="add" value="${param.add}" scope="session"/>  --%>
     <H1>購物車</H1>
  

@@ -8,8 +8,7 @@
 </head>
 <body>
 <jsp:include page="/_04_ST/04_topbar.jsp" />
-<c:set var="orderid" value="${param.orderid}" scope=""/>
-訂單已成立
-<P>訂單編號為${orderid}</P>
+訂單已修改
+
 </body>
 </html>

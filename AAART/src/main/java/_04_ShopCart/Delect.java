@@ -12,13 +12,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/_04_ShopCart/DelectCart")
-public class DelectCart extends HttpServlet {
+/**
+ * Servlet implementation class Delect
+ */
+@WebServlet("/_04_ShopCart/Delect")
+public class Delect extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	protected void doPOST(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Delect() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		System.out.println("here");
 		HashSet<HashMap>  cartlist =(HashSet<HashMap>) request.getSession().getAttribute("cartlist");
 		for (HashMap carmap : cartlist) {	
@@ -27,7 +48,6 @@ public class DelectCart extends HttpServlet {
 			carmap.remove("adultnum");
 			carmap.remove("total1");
 			carmap.remove("total2");
-			carmap.remove("totalprice");
 			for (Map map_1 : cartlist) {
 				System.out.println(map_1);
 				
@@ -37,8 +57,6 @@ public class DelectCart extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/_04_ShopCart/_04_ShoppingCart.jsp");
 		dispatcher.forward(request, response);		
-		
-
-}
+	}
 
 }

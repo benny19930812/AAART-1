@@ -39,10 +39,12 @@
         }
         </style>
 </head>
-<BODY>
-<c:set var="funcName" value="IND" scope="session"/>        
-<jsp:include page="/fragment/top.jsp" />
-<form method=GET action="./SearchServlet"> 
+   <BODY>
+ 
+        
+<jsp:include page="/_04_ST/04_topbar.jsp" />
+  <form method=GET action="./SearchServlet"> 
+
    <button name="category" type="submit" value="1">音樂</button>
    <button name="category" type="submit" value="2">戲劇</button>
    <button name="category" type="submit" value="3">舞蹈</button>
@@ -58,18 +60,19 @@
    <button name="category" type="submit" value="16">科教</button>
    <button name="category" type="submit" value="17">音樂</button>
    <button name="category" type="submit" value="19">研習課程</button>
-	<!-- 隱藏屬性 用來傳遞頁數 -->
-	<input type="hidden" name="site" value="">
-	<input type="hidden" name="startdate" value="">
-	<input type="hidden" name="enddate" value="">
-	<input type="hidden" name="queryVal" value="">
-	<input type="hidden" name="page" value="">
-</form>
+<!-- 隱藏屬性 用來傳遞頁數 -->
+<input type="hidden" name="site" value="">
+<input type="hidden" name="startdate" value="">
+<input type="hidden" name="enddate" value="">
+<input type="hidden" name="queryVal" value="">
+<input type="hidden" name="page" value="">
+
+   </form>
    
    
 
 <div class="bodydiv">
-   <img src="images/logo.jpg" alt="logo" title="logo" class="logo"><br>
+   <img src="./images/logo.jpg" alt="logo" title="logo" class="logo"><br>
 <form method=GET action="./SearchServlet">
 
 <!-- 隱藏屬性 用來傳遞頁數 -->
@@ -127,6 +130,9 @@
 	<input placeholder="結束日查詢" class="textbox-n" type="text" onfocus="(this.type='date')" id="enddate" name="enddate">
 <!--    <input id="startdate" type="date" name="startdate" placeholder ="開始日查詢"> -->
 <!--    <input id="enddate" type="date" name="enddate" placeholder ="結束日查詢"><br> -->
+
+
+
 
 </form>
 </div>  

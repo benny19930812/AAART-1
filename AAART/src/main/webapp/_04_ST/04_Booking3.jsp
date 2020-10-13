@@ -38,7 +38,7 @@
 <body>
 <form name="order2" action="<c:url value='/_04_Orderlist/OrderlistServlet'/> " method="post">
 
-	<jsp:include page="/fragment/top.jsp" />
+	<jsp:include page="/_04_ST/04_topbar.jsp" />
 <c:set var="name" value="${param.name}" scope="session"/> 
 <c:set var="email" value="${param.email}" scope="session"/> 
 <c:set var="tel" value="${param.tel}" scope="session"/> 
@@ -127,12 +127,12 @@
  <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </script>
-</script>
+
     <script>
 
     $("#1").click(function () {
-    	if (confirm("再次確認訂單內容 ? ")) {
-    		window.location ="<c:url value='/_04_Orderlist/OrderlistServlet'/>" 
+    	if (confirm("是否送出訂單? ")) {
+    		window.location ="<c:url value='/_04_ShopCart/DelectCart'/>" 
     	} else {
     		return false;
     	}

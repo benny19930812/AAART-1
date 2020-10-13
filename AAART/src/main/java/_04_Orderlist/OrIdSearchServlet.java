@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import _04_Orderlist.*;
 
@@ -43,6 +44,8 @@ public class OrIdSearchServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		try {
 			String queryVal = request.getParameter("orderid");
+			HttpSession session = request.getSession();	
+			session.setAttribute("orderid",queryVal);
 
 			OrderListDAO orderListDAO = new OrderListDAO();
 			List<Orderlistbean> orderusers = orderListDAO.GetOrderUser();

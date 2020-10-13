@@ -64,5 +64,76 @@
     <a href="#">線上程式語言教學練習 3</a>
   </div>
 </div>
+
+
+
+
+ <table class="table table-hover text-center">
+		      <tr>
+		        <th style="text-align:center;">職業</th>
+		        <th style="text-align:center;">熱門職業</th>
+		        <th style="text-align:center;">操作</th>
+		      </tr>
+		      
+		      <c:forEach items="${map.xxx}"  var="list"> 
+		        <tr id="tr_${list.id}" style="border-bottom: 1px solid #DDDDDD;">
+		          <td style="display: none;">${list.id}</td>
+		          <td>${list.occupation}</td>
+		          <td>
+		           <c:if test="${list.xxx==1}">不熱門</c:if>
+		           <c:if test="${list.xxx==2}">熱門</c:if>
+		          </td>
+		          <td>
+		         	 <div class="button-group">			         
+			          <a class="button border-yellow" href="#" onclick="return del(${list.id})"><span class="icon-plus-square-o"></span>刪除</a>
+		          	 </div>
+		          </td>
+		        </tr>
+		      </c:forEach>
+	   
+         </table>
+<table border="1">
+	<tr><th>ID</th><th>標題</th><th>時間</th><th>操作</th></tr>
+	<tr id="tr_1"><td>1</td><td>標題1</td><td>時間1</td><td><a href="javascript:void(0)" onclick="del_tr(1)">刪除</a></td></tr>
+	<tr id="tr_2"><td>2</td><td>標題2</td><td>時間2</td><td><a href="javascript:void(0)" onclick="del_tr(2)">刪除</a></td></tr>
+	<tr id="tr_3"><td>3</td><td>標題3</td><td>時間3</td><td><a href="javascript:void(0)" onclick="del_tr(3)">刪除</a></td></tr>
+	<tr id="tr_4"><td>4</td><td>標題4</td><td>時間4</td><td><a href="javascript:void(0)" onclick="del_tr(4)">刪除</a></td></tr>
+</table> 
+<script>
+function del(id){
+	  if(confirm("您確定要刪除嗎?")){
+		 var url = "/backstage/xxx/";
+			$.ajax({
+				url : url,
+				type : "post",
+				data : {
+					"xx" :xx
+				},
+				success : function(job) {
+					if (job==xxx) {
+					    var tr = document.getElementById("tr_"+id);
+					    tr.parentNode.removeChild(tr);
+					}else {
+						alert("刪除失敗，請重試!");
+					}
+				}
+			});
+	   }  
+}
+
+
+</script>
+
+
+
+        
+         
+         
+         <script>
+function del_tr(id){
+	var tr = document.getElementById("tr_"+id);
+        tr.parentNode.removeChild(tr);
+}
+</script>
 </body>
 </html>

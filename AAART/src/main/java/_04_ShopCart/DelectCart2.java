@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/_04_ShopCart/DelectCart")
-public class DelectCart extends HttpServlet {
+@WebServlet("/_04_ShopCart/DelectCart2")
+public class DelectCart2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+ 
+
 	protected void doPOST(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("here");
@@ -27,7 +29,6 @@ public class DelectCart extends HttpServlet {
 			carmap.remove("adultnum");
 			carmap.remove("total1");
 			carmap.remove("total2");
-			carmap.remove("totalprice");
 			for (Map map_1 : cartlist) {
 				System.out.println(map_1);
 				
